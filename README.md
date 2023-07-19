@@ -15,8 +15,9 @@ python clip_search.py --pre_process=True --app=False
 
 ### 3. run GraphSearch
 
-find the top_k images that similar to the input image
-modify the input image path (named as one_img_path) in clip_search.py
+* find the top_k images that similar to the input image
+
+* modify the input image path (named as one_img_path) in clip_search.py
 
 ~~~shell
 python clip_search.py --pre_process=False --top_k=200 --app=False
