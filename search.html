@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Processing</title>
+    <style>
+        /* 添加一些样式来美化页面 */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #image-upload {
+            margin-bottom: 20px;
+        }
+        #image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .img-item {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Processing</h1>
+    <input type="file" id="image-upload" accept="image/*">
+    <button id="process-btn">Process Image</button>
+    <div id="image-gallery"></div>
+
+    <script>
+        const uploadInput = document.getElementById('image-upload');
+        const processBtn = document.getElementById('process-btn');
+        const imageGallery = document.getElementById('image-gallery');
+
+        processBtn.addEventListener('click', () => {
+            const file = uploadInput.files[0];
+            const formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/process', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const urls = data.urls;
+                imageGallery.innerHTML = '';
+                urls.forEach(url => {
+                    const imgItem = document.createElement('img');
+                    imgItem.src = url;
+                    imgItem.className = 'img-item';
+                    imageGallery.appendChild(imgItem);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

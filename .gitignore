@@ -1,0 +1,6 @@
+__pycache__
+*.json
+*.npy
+*.pth
+*.pkl
+.DS_Store
