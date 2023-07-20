@@ -1,9 +1,11 @@
 # GarphSearch
 The project designed for image-to-image retrieval
 
+## Usage
+
 ### 1. download cropped images and model weight files
 
-* with new collected abd uncropped images, run `python utils.py` to perform detections and cropping
+* with new collected and uncropped images, run `python utils.py` to perform detections and cropping
 
 ### 2. generate image (embedding) library
 
@@ -22,3 +24,7 @@ python clip_search.py --pre_process=True --app=False
 ~~~shell
 python clip_search.py --pre_process=False --top_k=200 --app=False
 ~~~
+
+## Results
+
+![GarphSearch](Graph_top10.png)
