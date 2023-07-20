@@ -9,7 +9,7 @@ import argparse
 from config import *
 
 class Image2Embedding:
-    def __init__(self, device, read_path, out_path1, out_path2, app):
+    def __init__(self, device, read_path, out_path1, out_path2, app=True):
         self.device = device
         self.read_path = read_path
         self.out_path1 = out_path1
